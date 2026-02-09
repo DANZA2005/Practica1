@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI Insight Hub</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="app.js"></script>
+</head>
+
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <header class="site-header" id="top">
+    <div class="container header-row">
+      <div class="brand" aria-label="Identidad del sitio">
+        <span class="logo" aria-hidden="true">AI</span>
+        <div>
+          <p class="brand-title">AI Insight Hub</p>
+          <p class="brand-subtitle">IA explicada en corto</p>
+        </div>
+      </div>
+
+      <nav class="nav" aria-label="Navegación principal">
+        <button class="btn ghost" id="btnMenu" aria-expanded="false" aria-controls="menuList">
+          Menú
+        </button>
+
+        <ul class="menu" id="menuList">
+          <li><a href="#contenido">Inicio</a></li>
+          <li><a href="#articulos">Artículos</a></li>
+          <li><a href="#glosario">Glosario</a></li>
+          <li><a href="#newsletter">Newsletter</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="btn" id="btnTema" type="button">Tema</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <h1 id="tituloPrincipal">Inteligencia Artificial, sin humo</h1>
+          <p id="subtitulo">
+            Aprende conceptos clave (LLM, visión, agentes) con ejemplos prácticos.
+          </p>
+
+          <div class="hero-actions">
+            <button class="btn" id="btnCambiarMensaje" type="button">
+              Cambiar mensaje
+            </button>
+            <button class="btn ghost" id="btnModal" type="button">
+              ¿Qué es IA?
+            </button>
+          </div>
+
+          <p class="meta" aria-live="polite">
+            Estado: <strong id="estadoUI">Listo</strong>
+          </p>
+        </div>
+
+        <aside class="panel">
+          <h2 class="h3">Filtro rápido</h2>
+          <label class="label" for="filtro">
+            Buscar por palabra clave
+          </label>
+          <input class="input" id="filtro" type="search" placeholder="Ej. modelos, datos, ética..." />
+
+          <div class="chips" id="chips">
+            <button class="chip" type="button" data-tag="modelos">Modelos</button>
+            <button class="chip" type="button" data-tag="datos">Datos</button>
+            <button class="chip" type="button" data-tag="ética">Ética</button>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="articulos" aria-label="Artículos">
+      <div class="container">
+        <div class="section-row">
+          <h2>Artículos</h2>
+          <div class="row-actions">
+            <button class="btn ghost" id="btnAgregarCard" type="button">Agregar card</button>
+            <button class="btn ghost" id="btnLimpiar" type="button">Limpiar</button>
+          </div>
+        </div>
+
+        <div class="grid" id="listaArticulos">
+          <article class="card" data-seed="true" data-tags="modelos ética">
+            <h3 class="card-title">¿Qué es un modelo?</h3>
+            <p class="card-text">Una función que aprende patrones a partir de datos.</p>
+            <div class="card-actions">
+              <button class="btn small" type="button" data-action="like">👍 Like</button>
+              <button class="btn small ghost" type="button" data-action="remove">Eliminar</button>
+              <span class="badge" aria-label="likes">0</span>
+            </div>
+          </article>
+
+          <article class="card" data-seed="true" data-tags="datos">
+            <h3 class="card-title">Datos: calidad & sesgo</h3>
+            <p class="card-text">Basura entra, basura sale; y además puede amplificar sesgos.</p>
+            <div class="card-actions">
+              <button class="btn small" type="button" data-action="like">👍 Like</button>
+              <button class="btn small ghost" type="button" data-action="remove">Eliminar</button>
+              <span class="badge" aria-label="likes">0</span>
+            </div>
+          </article>
+
+          <article class="card" data-seed="true" data-tags="ética">
+            <h3 class="card-title">IA responsable</h3>
+            <p class="card-text">Privacidad, transparencia, explicabilidad y seguridad.</p>
+            <div class="card-actions">
+              <button class="btn small" type="button" data-action="like">👍 Like</button>
+              <button class="btn small ghost" type="button" data-action="remove">Eliminar</button>
+              <span class="badge" aria-label="likes">0</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="glosario" aria-label="Glosario">
+      <div class="container">
+        <h2>Glosario</h2>
+        <dl class="dl" id="listaGlosario">
+          <div class="dl-row">
+            <dt>LLM</dt><dd>Modelo de lenguaje grande.</dd>
+          </div>
+          <div class="dl-row">
+            <dt>Prompt</dt><dd>Instrucción/entrada al modelo.</dd>
+          </div>
+          <div class="dl-row">
+            <dt>Fine-tuning</dt><dd>Ajuste del modelo con datos específicos.</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="section" id="newsletter" aria-label="Newsletter">
+      <div class="container">
+        <h2>Newsletter</h2>
+
+        <form class="form" id="formNewsletter" novalidate>
+          <div class="form-row">
+            <label class="label" for="email">Correo</label>
+            <input class="input" id="email" name="email" type="email" placeholder="tu@correo.com" required />
+            <p class="help" id="emailHelp">Usa un correo válido (ej. nombre@dominio.com).</p>
+          </div>
+
+          <div class="form-row">
+            <label class="label" for="interes">Tema de interés</label>
+            <select class="input" id="interes" name="interes" required>
+              <option value="">Selecciona…</option>
+              <option>Modelos</option>
+              <option>Datos</option>
+              <option>Ética</option>
+            </select>
+          </div>
+
+          <button class="btn" type="submit">Suscribirme</button>
+          <p class="feedback" id="feedback" role="status" aria-live="polite"></p>
+        </form>
+
+        <div class="section-row mt">
+          <h3 class="h3">Carga asíncrona (demo)</h3>
+          <button class="btn ghost" id="btnCargar" type="button">Cargar “noticias”</button>
+        </div>
+        <ul class="list" id="listaNoticias"></ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-row">
+      <small>© AI Insight Hub</small>
+      <a href="#top">Volver arriba</a>
+    </div>
+  </footer>
+
+  <!-- Modal -->
+  <div class="modal" id="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-card" role="document">
+      <div class="modal-header">
+        <h2 class="h3" id="modalTitle">¿Qué es IA?</h2>
+        <button class="btn ghost small" id="btnCerrarModal" type="button" aria-label="Cerrar">✕</button>
+      </div>
+      <p>
+        IA = sistemas que realizan tareas que normalmente requieren inteligencia humana: percepción,
+        lenguaje, predicción y toma de decisiones.
+      </p>
+      <div class="modal-actions">
+        <button class="btn" id="btnOkModal" type="button">Entendido</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
