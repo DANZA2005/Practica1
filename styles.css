@@ -150,11 +150,7 @@ dd{ margin:.25rem 0 0; color:var(--muted); }
   .menu.is-open{ display:flex; flex-direction:column; gap:.5rem; }
 }
 
-<<<<<<< HEAD
-.card.is-highlight {
-=======
 .card.is-highlight{
->>>>>>> c0ecc4387174e52b36f9bc4ae14c9bffff44af19
   outline: 2px solid var(--line);
   transform: translateY(-2px);
 }

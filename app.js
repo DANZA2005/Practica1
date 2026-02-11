@@ -36,6 +36,7 @@ const listaArticulos = $('#listaArticulos');
 const btnAgregarCard = $('#btnAgregarCard');
 const listaArticulos2 = $('#listaArticulos');
 const btnLimpiar = $('#btnLimpiar');
+const listaArticulos3 = $('#listaArticulos');
 
 // Manejar eventos
 btnCambiarMensaje.addEventListener('click', () => {
@@ -89,13 +90,22 @@ btnLimpiar.addEventListener('click', () => {
     setEstado('los articulos borrados fueron ' + removed);
 });
 
-const likeButtons = $$('#listaArticulos button[data-action= "like"]');
-likeButtons.forEach( btn => {
-    btn.addEventListener('click', () => {
-        const card = btn.closest('.card');
-        hacerLike(card);
-    });
-}); 
+// const likeButtons = $$('#listaArticulos button[data-action= "like"]');
+// likeButtons.forEach( btn => {
+//     btn.addEventListener('click', () => {
+//         const card = btn.closest('.card');
+//         hacerLike(card);
+//     });
+// }); //esto no funciona porque los botones se crean dinamicamente y no existen al momento de agregar el evento, por lo tanto se debe usar delegacion de eventos
+
+listaArticulos3.addEventListener('click', (e) => {
+    // se hizo click en un  btn de like ?
+    const btn = e.target.closest('button[data-action= "like"]');
+    if (!btn) return;
+    const card = btn.closest('.card');
+    if (!card) return;
+    hacerLike(card);
+});
 
 const hacerLike = (card) => {
     const badge = card.querySelector('.badge');
@@ -103,3 +113,4 @@ const hacerLike = (card) => {
         badge.textContent = currentLikes + 1;
         setEstado('like + 1');
 };
+
