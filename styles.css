@@ -1,3 +1,5 @@
+
+
 :root{
   --bg:#0b1220; --card:#121b2e; --text:#e9edf5; --muted:#aab3c5;
   --line:#22304f; --accent:#7aa2ff; --accent2:#56d3a2;
@@ -153,4 +155,12 @@ dd{ margin:.25rem 0 0; color:var(--muted); }
 .card.is-highlight{
   outline: 2px solid var(--line);
   transform: translateY(-2px);
+}
+
+[hidden] {
+  display: none !important;
+}
+
+input.is-invalid {
+  outline: 2px solid var(--accent2);
 }
